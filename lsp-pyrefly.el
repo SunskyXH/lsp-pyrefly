@@ -1,4 +1,4 @@
-;;; lsp-pyrefly.el --- lsp-mode client for pyrefly -*- lexical-binding: t; -*-
+;;; lsp-pyrefly.el --- The lsp-mode client for pyrefly -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (C) 2025 SunskyXH
 ;;
@@ -6,16 +6,16 @@
 ;; Maintainer: SunskyXH <sunskyxh@gmail.com>
 ;; Created: December 01, 2025
 ;; Modified: December 01, 2025
-;; Version: 0.0.1
-;; Keywords: lsp, python
+;; Version: 0.0.2
+;; Keywords: tools
 ;; Homepage: https://github.com/SunskyXH/lsp-pyrefly
-;; Package-Requires: ((lsp-mode "8.0.0"))
+;; Package-Requires: ((emacs "28.1"))
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; Commentary:
 ;;
-;; LSP Clients for the Pyrefly Programming Language.
+;; LSP Client for the Pyrefly Programming Language.
 ;;
 ;;; Code:
 
@@ -26,7 +26,13 @@
   :group 'lsp-mode
   :link '(url-link "https://github.com/facebook/pyrefly"))
 
-(defcustom lsp-pyrefly-clients-server-command '("pyrefly" "lsp" "-j" "4")
+(defcustom lsp-pyrefly-parallel-jobs 4
+  "Number of parallel jobs for the pyrefly language server."
+  :group 'lsp-pyrefly
+  :type 'integer)
+
+(defcustom lsp-pyrefly-clients-server-command
+  `("pyrefly" "lsp" "-j" ,(number-to-string lsp-pyrefly-parallel-jobs))
   "Command to start the pyrefly language server."
   :group 'lsp-pyrefly
   :risky t

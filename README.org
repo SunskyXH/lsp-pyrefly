@@ -1,0 +1,54 @@
+#+TITLE: lsp-pyrefly
+#+AUTHOR: SunskyXH
+
+#+html: <a href="https://www.gnu.org/software/emacs/"><img alt="GNU Emacs" src="https://img.shields.io/badge/Emacs-28.1--30.2-%237F5AB6?logo=gnu-emacs&logoColor=white"/></a>
+
+The lsp-mode client for pyrefly.
+
+** Requirements
+
++ Emacs 28.1 or later
++ [[https://github.com/emacs-lsp/lsp-mode][lsp-mode]]
+
+** Installation
+
+*** Doom Emacs
+
+Add to your ~packages.el~:
+
+#+begin_src emacs-lisp
+(package! lsp-pyrefly :recipe(:host github :repo "SunskyXH/lsp-pyrefly"))
+#+end_src
+
+Add to your ~config.el~
+
+#+begin_src emacs-lisp
+(use-package! lsp-pyrefly
+  :after lsp-mode
+  :init)
+#+end_src
+
+*** Straight.el
+
+#+begin_src emacs-lisp
+(straight-use-package '(lsp-pyrefly :type git :host github :repo "SunskyXH/lsp-pyrefly"))
+#+end_src
+
+*** Manual Installation
+
+1. Clone the repository:
+  #+begin_src bash
+  git clone https://github.com/SunskyXH/lsp-pyrefly.git
+  #+end_src
+
+2. Add to your Emacs configuration:
+  #+begin_src emacs-lisp
+  (add-to-list 'load-path "/path/to/lsp-pyrefly.el")
+  (require 'lsp-pyrefly)
+  #+end_src
+
+** Configuration
+
+Customize the following variables:
+
+- ~lsp-pyrefly-parallel-jobs~ - Number of parallel jobs for the pyrefly language server. (default: 4)

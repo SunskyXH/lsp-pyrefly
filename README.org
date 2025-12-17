@@ -52,3 +52,6 @@ Add to your ~config.el~
 Customize the following variables:
 
 - ~lsp-pyrefly-parallel-jobs~ - Number of parallel jobs for the pyrefly language server. (default: 4)
+
+** Credit
+- [[https://github.com/emacs-lsp/lsp-mode/blob/master/clients/lsp-python-ty.el][ty client in lsp-mode repo]]
